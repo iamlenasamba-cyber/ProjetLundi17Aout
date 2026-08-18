@@ -7,13 +7,15 @@ class Eleve{
     private string $prenom;
     private string $matricule;
     private string $date;
+    private array $inscription;
 
-    public function __construct(?int $id=null,string $nom='',string $prenom='',string $matricule='',string $date=''){
+    public function __construct(?int $id=null,string $nom='',string $prenom='',string $matricule='',string $date='',array $inscription=[]){
         $this->nom=$nom;
         $this->id=$id;
         $this->prenom=$prenom;
         $this->matricule=$matricule;
         $this->date=$date;
+        $this->inscription=$inscription;
     }
 
     public function getId(){
@@ -51,6 +53,9 @@ class Eleve{
         $this->date=$date;
     }
     
+    public function getInscription(){
+        return $this->inscription;
+    }
 
 }
 

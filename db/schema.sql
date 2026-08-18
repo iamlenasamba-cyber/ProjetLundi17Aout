@@ -6,12 +6,23 @@ CREATE TABLE eleves (
    nom VARCHAR(30) NOT NULL,
    prenom VARCHAR(30) NOT NULL,
    matricule VARCHAR(50) UNIQUE NOT NULL,
-   dateNaissance DATE,
+   dateNaissance DATE
 );
 CREATE TABLE anneeAcademiques (
    id SERIAL PRIMARY KEY,
    annee VARCHAR(20),
    actif INT DEFAULT 0
+);
+
+CREATE TABLE types(
+   id SERIAL PRIMARY KEY,
+   nomType VARCHAR(30)
+);
+
+CREATE TABLE transactions(
+   id SERIAL PRIMARY KEY,
+   idType INT REFERENCES types(id),
+   idInscription INT REFERENCES inscriptions(id)
 );
 
 CREATE TABLE responsables(
@@ -44,7 +55,7 @@ CREATE TABLE classes(
    nomClasse VARCHAR(30) NOT NULL UNIQUE,
    
 );
-CREATE TABLE inscription (
+CREATE TABLE inscriptions (
    id SERIAL PRIMARY KEY,
    idClasse INT REFERENCES classes(id),
    idEleve INT REFERENCES eleves(id),
