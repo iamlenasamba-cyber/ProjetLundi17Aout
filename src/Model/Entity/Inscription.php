@@ -7,6 +7,7 @@ class Inscription {
     private ?Annee $annee;
     private ?Ecole $ecole;
     private ?Responsable $responsable;
+    
 
     function __construct (?int $id=null,?Classe $classe=null,?Eleve $eleve=null,?Annee $annee=null,?Responsable $responsable=null){
         $this->classe=$classe;
